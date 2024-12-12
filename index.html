@@ -3,23 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Query Parameter Example</title>
   <script>
+    // Function to get the query parameter from the URL
     function getQueryParameter(name) {
       const urlParams = new URLSearchParams(window.location.search);
       return urlParams.get(name);  // Returns the value of the parameter or null if not found
     }
   
-  
-  window.onload = function(){
-      console.log("loaded");
-      var ageObj =   document.getElementById('age');
-      let value = getQueryParameter("age") || 0 ;
+    // Function to run after the page has loaded
+    window.onload = function() {
+      console.log("Page loaded");
+
+      // Get the age element
+      const ageObj = document.getElementById('age');
+
+      // Retrieve the age from the query parameter or use default value 0
+      const value = getQueryParameter("age") || "0";
+
+      // Display the retrieved value
       ageObj.innerText = value;
-  };
-</script>
+    };
+  </script>
 </head>
 <body>
-    AGE : <p id="age"></p>
+  <h1>Query Parameter Example</h1>
+  <p>AGE: <span id="age"></span></p>
 </body>
 </html>
