@@ -4,30 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Query Parameter Example</title>
+  <style>
+      #details-container{
+        display:flex;
+        flex-direction:column;
+        border:1px solid black;
+      }
+    .field-data{
+      display:flex;
+      flex-direction:row;
+    }
+    
+  </style>
+
+  
   <script>
     // Function to get the query parameter from the URL
     function getQueryParameter(name) {
       const urlParams = new URLSearchParams(window.location.search);
       return urlParams.get(name);  // Returns the value of the parameter or null if not found
     }
-  
+
+
     // Function to run after the page has loaded
     window.onload = function() {
       console.log("Page loaded");
 
       // Get the age element
-      const ageObj = document.getElementById('age');
+      const shapeObj = document.getElementById('shape');
+      const colorObj = document.getElementById('color');
+      const scaleObj = document.getElementById('scale');
+     
 
       // Retrieve the age from the query parameter or use default value 0
-      const value = getQueryParameter("age") || "0";
-
+      const shapeValue = getQueryParameter("shape") || "No Data";
+      const colorValue = getQueryParameter("color") || "No Data";
+      const scaleValue = getQueryParameter("scale") || "No Data";
+      
       // Display the retrieved value
-      ageObj.innerText = value;
+      shapeObj.innerText = value;
+      colorObj.innerText = colorValue;
+      scaleObj.innerText  = scaleValue;
     };
   </script>
 </head>
 <body>
-  <h1>Query Parameter Example</h1>
-  <p>AGE: <span id="age"></span></p>
+  <div id="details-container">
+    <div class="field-data">
+      <h2>Shape:</h2>:<h2 id="shape"></h2>
+    </div>
+    <div class="field-data">
+      <h2>Shape:</h2>:<h2 id="color"></h2>
+    </div>
+    <div class="field-data">
+      <h2>Shape:</h2>:<h2 id="scale"></h2>
+    </div>
+  </div>
 </body>
 </html>
